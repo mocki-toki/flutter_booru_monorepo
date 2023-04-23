@@ -2,10 +2,9 @@ name: flutter_booru_monorepo
 
 packages:
   - packages/**
-  - flutter_booru
+  - flutter_booru_client
+  - flutter_booru_client/packages/**
   - .
-
-
 
 scripts:
   pub:get: "flutter pub run melos exec flutter pub get"
@@ -13,6 +12,14 @@ scripts:
   test: 'flutter pub run melos exec --dir-exists="test" "flutter test --dart-define=environment=testing" '
   integration_test: 'flutter pub run melos exec --dir-exists="integration_test" "flutter test integration_test --dart-define=environment=testing" '
   coverage: 'flutter pub run melos exec --dir-exists="test" "flutter test --coverage"'
-  bootstrap: "flutter pub run melos run pub:get"
   generate: 'flutter pub run melos exec --depends-on build_runner "dart run build_runner build --delete-conflicting-outputs" '
-  clean: "flutter pub run melos exec --depends-on flutter flutter clean && flutter pub run melos exec rm pubspec.lock"
+  clean: 'flutter pub run melos exec --depends-on flutter flutter clean && find -E . -regex ".*((g|freezed)\.dart|pubspec\.lock|\.DS_Store)" -type f -delete'
+  fresh: "flutter pub run melos run clean && flutter pub get && flutter pub run melos run pub:get && flutter pub run melos run generate"
+  dependency:validator: "flutter pub run melos exec flutter pub global run dependency_validator"
+
+  firebase:init: 'cd packages/flutter_booru_client && flutterfire configure --yes --out="packages/flutter_booru_firebase/flutter_booru_core_firebase/lib/src/infrastructure/constants/default_firebase_options.dart" --project="flutter-booru"'
+  pansy:arch:model:create: 'mason make pansy_arch_model --project_name "flutter_booru_client" $@'
+  pansy:arch:module:create: 'mason make pansy_arch_module --project_name "flutter_booru_client" $@'
+  pansy:arch:package:create: "mason make pansy_arch_package $@"
+  pansy:arch:page:create: 'mason make pansy_arch_page --project_name "flutter_booru_client" $@'
+  pansy:arch:service:create: 'mason make pansy_arch_service --project_name "flutter_booru_client" $@'

@@ -3,12 +3,16 @@ include: package:lint/strict.yaml
 linter:
   rules:
     sort_pub_dependencies: false
+    prefer_single_quotes: true
+    unawaited_futures: true
 
 analyzer:
   exclude:
     - "**/**.g.dart"
     - "**/**.freezed.dart"
     - "**/firebase_options.dart"
+    - "packages/experimental/pansy_sdk_protocols/**"
+    - "templates/**/__brick__/**"
   plugins:
     - dart_code_metrics
 
@@ -20,7 +24,7 @@ dart_code_metrics:
     maintainability-index: 50
     maximum-nesting-level: 5
     number-of-methods: 10
-    number-of-parameters: 4
+    number-of-parameters: 5
     source-lines-of-code: 50
     weight-of-class: 0.33
 
@@ -28,16 +32,13 @@ dart_code_metrics:
     - test/**
 
   rules:
-    - arguments-ordering:
-        child-last: true
     - avoid-cascade-after-if-null
     - avoid-double-slash-imports
     - avoid-duplicate-exports
-    - avoid-dynamic
+    # глючит
+    # - avoid-dynamic
     - avoid-global-state
-    - avoid-ignoring-return-values
     - avoid-missing-enum-constant-in-map
-    - avoid-nested-conditional-expressions
     - avoid-non-ascii-symbols
     - avoid-redundant-async
     - avoid-throw-in-catch-block
@@ -49,6 +50,7 @@ dart_code_metrics:
     - avoid-unused-parameters
     - binary-expression-operand-order
     - double-literal-format
+    - list-all-equatable-fields
     - member-ordering:
         order:
           - constructors
@@ -63,12 +65,10 @@ dart_code_metrics:
           - did-update-widget-method
           - dispose-method
           - build-method
-    - newline-before-return
     - no-boolean-literal-compare
-    - no-empty-block
-    - no-equal-arguments
     - no-equal-then-else
-    - no-magic-number
+    # TODO: вернуть при редизайне
+    # - no-magic-number
     - no-object-declaration
     - prefer-async-await
     - prefer-commenting-analyzer-ignores
@@ -83,7 +83,6 @@ dart_code_metrics:
           - test/**
     - prefer-moving-to-variable:
         allowed-duplicated-chains: 3
-    - prefer-static-class
     - prefer-trailing-comma
     - tag-name:
         var-names: [_kTag]
@@ -91,8 +90,6 @@ dart_code_metrics:
         strip-postfix: State
     - always-remove-listener
     - avoid-border-all
-    - avoid-returning-widgets
-    - avoid-shrink-wrap-in-lists
     - avoid-unnecessary-setstate
     - avoid-expanded-as-spacer
     - avoid-wrapping-in-padding
@@ -101,7 +98,6 @@ dart_code_metrics:
     - prefer-const-border-radius
     - prefer-correct-edge-insets-constructor
     - prefer-extracting-callbacks
-    - prefer-single-widget-per-file
     - prefer-using-list-view
 
   anti-patterns:

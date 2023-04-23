@@ -1,0 +1,11 @@
+bricks:
+  pansy_arch_model:
+    path: templates/pansy_arch_model
+  pansy_arch_module:
+    path: templates/pansy_arch_module
+  pansy_arch_package:
+    path: templates/pansy_arch_package
+  pansy_arch_page:
+    path: templates/pansy_arch_page
+  pansy_arch_service:
+    path: templates/pansy_arch_service

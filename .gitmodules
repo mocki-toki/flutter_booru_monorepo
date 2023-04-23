@@ -1,0 +1,3 @@
+[submodule "packages/pansy_sdk_protocols/protocols"]
+	path = packages/pansy_sdk_protocols/protocols
+	url = git@github.com:pansydev/protocols.git

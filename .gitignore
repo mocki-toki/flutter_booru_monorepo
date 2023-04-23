@@ -3,7 +3,7 @@
 *.log
 *.pyc
 *.swp
-.DS_Store
+**/.DS_Store
 .atom/
 .buildlog/
 .history
@@ -46,5 +46,3 @@ build/
 **/android/app/debug
 **/android/app/profile
 **/android/app/release
-android/
-ios/

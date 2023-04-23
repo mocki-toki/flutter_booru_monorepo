@@ -3,6 +3,9 @@
     "**/.git": true,
     "**/.DS_Store": true,
 
+    "**/.mason": true,
+    "**/mason-lock.json": true,
+
     "**/.idea": true,
 
     "**/*.freezed.dart": true,
@@ -22,7 +25,10 @@
 
     "**/build": true
   },
-
+  "dart.lineLength": 100,
+  "[dart]": {
+    "editor.rulers": [100]
+  },
   "editor.formatOnSave": true,
   "explorer.compactFolders": false,
   "dart.runPubGetOnPubspecChanges": "never"

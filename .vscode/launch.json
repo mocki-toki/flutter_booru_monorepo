@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "todo_app",
+      "name": "flutter_booru_client",
       "request": "launch",
       "type": "dart",
-      "program": "todo_app/lib/main.dart"
+      "program": "packages/flutter_booru_client/lib/main.dart"
     }
   ]
 }

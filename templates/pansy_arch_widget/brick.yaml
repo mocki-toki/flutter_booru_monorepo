@@ -1,0 +1,19 @@
+name: pansy_arch_widget
+description: Pansy Archeticture Widget
+version: 1.0.0
+
+environment:
+  mason: ">=0.1.0-dev.40 <0.1.0"
+
+vars:
+  project_name:
+    type: string
+    prompt: Project name
+
+  module_name:
+    type: string
+    prompt: Module name
+
+  widget_name:
+    type: string
+    prompt: Widget name
